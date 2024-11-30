@@ -6,7 +6,7 @@ class TrieNode:
         self.isEnd = isEnd
     
     def __str__(self):
-        return f"{self.children}, {self.isEnd}"
+        return f"node => {[k for k in self.children]}, Is end = {self.isEnd}"
 
 class Trie:
     def __init__(self):
