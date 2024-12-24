@@ -7,17 +7,17 @@ def toposort(adjLst, n):
         for neig in neighbours:
             inDegree[neig] += 1
     queue = collections.deque([])
-    for course in range(n):
-        if inDegree[course] == 0:
-            queue.append(course)
-    coursesTaken = 0
+    for node in range(n):
+        if inDegree[node] == 0:
+            queue.append(node)
+    visited = 0
     order = []
     while queue:
         node = queue.popleft()
-        coursesTaken += 1
+        visited += 1
         order.append(node)
-        for next in adjLst[node]:
-            inDegree[next] -= 1
-            if inDegree[next] == 0:
-                queue.append(next)
+        for nxt in adjLst[node]:
+            inDegree[nxt] -= 1
+            if inDegree[nxt] == 0:
+                queue.append(nxt)
     return order
